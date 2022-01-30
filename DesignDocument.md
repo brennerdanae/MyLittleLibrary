@@ -160,7 +160,7 @@ UPC data for books, games, and movies.
 
 **Class Diagram**
 
-![ClassDiagram](Aspose.Words.6ff342ec-44c6-435e-8258-895b9cc7899e.002.png)
+![ClassDiagram](https://i.imgur.com/jA7bZmZ.png)
 
 **Class Diagram Description**
 
