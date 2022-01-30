@@ -160,23 +160,21 @@ UPC data for books, games, and movies.
 
 **Class Diagram**
 
-![ClassDiagram](https://i.imgur.com/jA7bZmZ.png)
+![ClassDiagram](https://i.imgur.com/GsIln2S.png)
 
 **Class Diagram Description**
 
-**MainActivity:** The first screen the user sees. This will have a list of specimens, and an option to enter a new specimen.
-
-**SpecimenDetailsActivity:** A screen that shows details of a specimen.
+**MainPage:** This is the homescreen for the application. It displays a simple UI with two buttons, one for scanning and one for checking your library. 
 
 **RetrofitInstance:** Boostrap class required for Retrofit.
 
-**Plant:** Noun class that represents a plant.
+**Book:** Variable within our code. Handles the information tied to lending out books. Has six parameters that are going to be fed into our database for sorting purposes. ISBN is an exclusive property to Book.
 
-**Specimen:** Noun class that represents a specimen.
+**Movie:** Another variable within our code. Has another six parameters which are going to be fed into a database for sorting purposes.
 
-**IPlantDAO:** Interface for Retrofit to find and parse Plant JSON.
+**Game:** Another variable that has the same parameters as Movie, except this one has GameID rather than MovieID, making it unique. 
 
-**ISpecimenDAO:** Interface for Room to persist Specimen data
+**AppDatabase:** Our application database that is going to pull from our SQL database and pull UPC and barcode data from various online libraries utilizing external APIs.
 
 **Scrum Roles**
 
