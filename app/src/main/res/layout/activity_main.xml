@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="Books"
+        android:text="@string/books"
         android:gravity="center_horizontal"
         android:textSize="70sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +29,7 @@
         app:layout_constraintBottom_toTopOf="@id/dvds"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="Movies"
+        android:text="@string/movies"
         android:textAlignment="center"
         android:textSize="70sp"/>
 
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="DVDs"
+        android:text="@string/dvds"
         android:textAlignment="center"
         android:textSize="70sp"
         app:layout_constraintEnd_toEndOf="parent"
