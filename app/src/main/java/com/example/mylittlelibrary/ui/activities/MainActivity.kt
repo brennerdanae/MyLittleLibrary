@@ -1,5 +1,6 @@
 package com.example.mylittlelibrary.ui.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -15,16 +16,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         //testing
 
+        var intent = Intent(this, ListActivity::class.java)
+
         binding.books.setOnClickListener {
-            Toast.makeText(this, "Books Clicked", Toast.LENGTH_SHORT).show()
+            intent.putExtra("Clicked", "Books")
+            startActivity(intent)
         }
 
         binding.movies.setOnClickListener{
-            Toast.makeText(this, "Movies Clicked", Toast.LENGTH_SHORT).show()
+            intent.putExtra("Clicked", "Movies")
+            startActivity(intent)
         }
 
         binding.dvds.setOnClickListener {
-            Toast.makeText(this, "DVDs Clicked", Toast.LENGTH_SHORT).show()
+            intent.putExtra("Clicked", "DVDs")
+            startActivity(intent)
         }
     }
 }
