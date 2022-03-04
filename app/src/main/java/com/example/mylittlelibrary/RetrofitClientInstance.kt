@@ -12,7 +12,7 @@ object RetrofitClientInstance {
         get() {
             if (retrofit == null) {
                 val gson = GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create()
-                retrofit = retrofit2.Retrofit.Builder()
+                retrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build()
