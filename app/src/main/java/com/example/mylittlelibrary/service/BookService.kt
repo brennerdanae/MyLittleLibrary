@@ -8,9 +8,13 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
 import retrofit2.awaitResponse
 
-class BookService {
+interface IBookService {
+    suspend fun fetchBooks(): List<Book>?
+}
 
-    suspend fun fetchBooks(): List<Book>? {
+class BookService : IBookService {
+
+    override suspend fun fetchBooks(): List<Book>? {
         return withContext(Dispatchers.IO){
             val service = RetrofitClientInstance.retrofitInstance?.create(LibraryApi::class.java)
             val books = async {
