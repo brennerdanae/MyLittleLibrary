@@ -1,4 +1,4 @@
-package com.example.mylittlelibrary.service.api
+package com.example.mylittlelibrary.dao
 
 import com.example.mylittlelibrary.data.Book
 import retrofit2.Call

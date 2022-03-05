@@ -2,12 +2,11 @@ package com.example.mylittlelibrary.service
 
 import com.example.mylittlelibrary.RetrofitClientInstance
 import com.example.mylittlelibrary.data.Book
-import com.example.mylittlelibrary.service.api.LibraryApi
+import com.example.mylittlelibrary.dao.LibraryApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
 import retrofit2.awaitResponse
-import retrofit2.create
 
 class BookService {
 
