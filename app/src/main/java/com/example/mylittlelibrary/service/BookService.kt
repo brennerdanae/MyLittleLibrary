@@ -14,11 +14,14 @@ class BookService {
     suspend fun fetchBooks(): List<Book>? {
         return withContext(Dispatchers.IO){
             val service = RetrofitClientInstance.retrofitInstance?.create(LibraryApi::class.java)
-            val books = async {
-                service?.getAllBooks()
+            val call = service?.getAllBooks()?.execute()
+            call?.let { callInstance ->
+                if(callInstance.isSuccessful) {
+                    callInstance.body()
+                } else {
+                    emptyList()
+                }
             }
-            val result = books.await()?.awaitResponse()?.body()
-            return@withContext result
         }
     }
 }
