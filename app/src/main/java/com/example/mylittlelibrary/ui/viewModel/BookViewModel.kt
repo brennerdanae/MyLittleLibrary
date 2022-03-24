@@ -1,17 +1,26 @@
 package com.example.mylittlelibrary.ui.viewModel
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.mylittlelibrary.data.Book
-import com.example.mylittlelibrary.service.BookService
+import com.example.mylittlelibrary.repository.BookRepository
 import kotlinx.coroutines.launch
 
-class BookViewModel(var bookService: BookService = BookService()): ViewModel() {
-    var books : MutableLiveData<List<Book>> = MutableLiveData<List<Book>>()
-    fun fetchBooks(){
+class BookViewModel(
+    private var repository: BookRepository
+) : ViewModel() {
+
+    var books = repository.allBooks.asLiveData()
+    var myResponse: MutableLiveData<Boolean> = MutableLiveData()
+
+    fun fetchBooks() {
         viewModelScope.launch {
-            books.postValue(bookService.fetchBooks())
+            repository.fetchBooks()
+        }
+    }
+
+    fun addBook(book: Book) {
+        viewModelScope.launch {
+            myResponse.postValue(repository.addBook(book))
         }
     }
 }
