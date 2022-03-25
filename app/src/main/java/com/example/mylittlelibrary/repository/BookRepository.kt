@@ -1,12 +1,12 @@
 package com.example.mylittlelibrary.repository
 
-import androidx.annotation.WorkerThread
 import com.example.mylittlelibrary.data.Book
 import com.example.mylittlelibrary.room.dao.BookDao
 import com.example.mylittlelibrary.service.BookService
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class BookRepository(private val bookDao: BookDao, private val service: BookService) {
+class BookRepository @Inject constructor(private val bookDao: BookDao, private val service: BookService) {
 
     val allBooks: Flow<List<Book>> = bookDao.getAllBooks()
 

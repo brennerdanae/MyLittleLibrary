@@ -5,14 +5,18 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import com.example.mylittlelibrary.MyLittleLibraryApplication
 import com.example.mylittlelibrary.R
 import com.example.mylittlelibrary.ui.viewModel.BookViewModel
+import javax.inject.Inject
 
 class ListActivity : AppCompatActivity() {
 
-    private val viewModel: BookViewModel by viewModels()
+    @Inject
+    lateinit var viewModel: BookViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        (application as MyLittleLibraryApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 

@@ -4,9 +4,10 @@ import androidx.lifecycle.*
 import com.example.mylittlelibrary.data.Book
 import com.example.mylittlelibrary.repository.BookRepository
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class BookViewModel(
-    private var repository: BookRepository
+class BookViewModel @Inject constructor(
+    private val repository: BookRepository
 ) : ViewModel() {
 
     var books = repository.allBooks.asLiveData()
