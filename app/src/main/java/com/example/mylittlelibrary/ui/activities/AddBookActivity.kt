@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import com.example.mylittlelibrary.MyLittleLibraryApplication
 import com.example.mylittlelibrary.data.Book
 import com.example.mylittlelibrary.databinding.ActivityAddBookBinding
 import com.example.mylittlelibrary.ui.viewModel.BookViewModel
@@ -13,6 +14,7 @@ class AddBookActivity : AppCompatActivity() {
     private val addBookViewModel: BookViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        (application as MyLittleLibraryApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
         binding = ActivityAddBookBinding.inflate(layoutInflater)
         setContentView(binding.root)
