@@ -1,15 +1,25 @@
 package com.example.mylittlelibrary.ui.activities
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import com.example.mylittlelibrary.R
 import com.example.mylittlelibrary.databinding.ActivityMainBinding
+import com.google.rpc.LocalizedMessage
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    lateinit var imageView: ImageView
+    lateinit var button: Button
+    val REQUEST_IMAGE_CAPTURE = 100
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -31,6 +41,20 @@ class MainActivity : AppCompatActivity() {
         binding.dvds.setOnClickListener {
             intent.putExtra("Clicked", "DVDs")
             startActivity(intent)
+
+        imageView = findViewById(R.id.imageView)
+        button = findViewById(R.id.btnAddBook)
+
+        button.setOnClickListener{
+            val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+
+            try {
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+            } catch (e:ActivityNotFoundException){
+                Toast.makeText(this,"Error: " + e.LocalizedMessage,Toast.LENGTH_SHORT).show()
+            }
+        }
+
         }
     }
 }
