@@ -11,7 +11,6 @@ import android.widget.ImageView
 import android.widget.Toast
 import com.example.mylittlelibrary.R
 import com.example.mylittlelibrary.databinding.ActivityMainBinding
-import com.google.rpc.LocalizedMessage
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         imageView = findViewById(R.id.imageView)
-        button = findViewById(R.id.btnAddBook)
+        button = findViewById(R.id.btnAddItem)
 
         button.setOnClickListener{
             val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
