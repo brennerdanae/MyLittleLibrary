@@ -20,13 +20,13 @@
             android:id="@+id/editTextBook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Book Name" />
+            android:hint="Item Name" />
 
         <EditText
             android:id="@+id/editTextLendTo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name of person book lend to?" />
+            android:hint="Name of person item lend to?" />
 
         <EditText
             android:id="@+id/editTextDate"
@@ -38,7 +38,13 @@
             android:id="@+id/btnSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Book" />
+            android:text="Add Item" />
+
+        <Button
+            android:id="@+id/add_btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back" />
 
     </LinearLayout>
 
