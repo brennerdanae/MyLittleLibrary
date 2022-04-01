@@ -26,7 +26,7 @@ class ListActivity : AppCompatActivity() {
         binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var intent = Intent(this, ListActivity::class.java)
+        val intent = Intent(this, ListActivity::class.java)
 
         if (intent.hasExtra("Clicked")){
             val itemSelected = intent.getStringExtra("Clicked")

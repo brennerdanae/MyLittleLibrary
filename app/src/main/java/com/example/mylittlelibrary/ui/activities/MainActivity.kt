@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         // testing
 
-        var intent = Intent(this, ListActivity::class.java)
+        val intent = Intent(this, ListActivity::class.java)
 
         binding.books.setOnClickListener {
             intent.putExtra("Clicked", "Books")
@@ -42,27 +42,27 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("Clicked", "DVDs")
             startActivity(intent)
 
-        imageView = findViewById(R.id.imageView)
-        button = findViewById(R.id.btnAddItem)
+            imageView = findViewById(R.id.imageView)
+            button = findViewById(R.id.btnAddItem)
 
-        button.setOnClickListener{
-            val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            button.setOnClickListener{
+                val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 
-            try {
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
-            } catch (e:ActivityNotFoundException){
-                // Toast.makeText(this,"Error: " + e.LocalizedMessage,Toast.LENGTH_SHORT).show()
-                Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show()
+                try {
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                } catch (e:ActivityNotFoundException){
+                    // Toast.makeText(this,"Error: " + e.LocalizedMessage,Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show()
+                }
             }
-        }
-        fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-            if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-                val imageBitmap = data?.extras?.get("data") as Bitmap
-                imageView.setImageBitmap(imageBitmap)
-            } else {
-                super.onActivityResult(requestCode, resultCode, data)
+            fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+                if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+                    val imageBitmap = data?.extras?.get("data") as Bitmap
+                    imageView.setImageBitmap(imageBitmap)
+                } else {
+                    super.onActivityResult(requestCode, resultCode, data)
+                }
             }
-        }
         }
     }
 }
