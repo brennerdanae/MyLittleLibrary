@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.mylittlelibrary.data.Book
 import kotlinx.coroutines.flow.Flow
+import kotlin.coroutines.Continuation
 
 @Dao
 interface BookDao {
@@ -18,6 +19,4 @@ interface BookDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(book: List<Book>)
 
-    @Query("DELETE FROM book_table")
-    suspend fun deleteAll()
 }

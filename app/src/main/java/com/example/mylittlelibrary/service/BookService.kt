@@ -33,4 +33,13 @@ class BookService {
             }
         }
     }
+
+    suspend fun deleteBook(id: Int): Boolean {
+        return withContext(Dispatchers.IO){
+            val call = service?.deleteBook(id)?.execute()
+            call.let {
+                it?.isSuccessful ?: false
+            }
+        }
+    }
 }
