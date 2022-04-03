@@ -2,8 +2,9 @@ package com.example.mylittlelibrary.data
 
 import java.util.*
 
-data class Movie(
-    var name: String,
-    var lendTo: String,
-    var date: Date
-)
+
+data class Movie(var name: String, var lendTo: String, var date: Date){
+    override fun toString(): String {
+        return name
+    }
+}
