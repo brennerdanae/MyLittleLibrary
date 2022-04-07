@@ -9,12 +9,12 @@ import androidx.lifecycle.Observer
 import com.example.mylittlelibrary.MyLittleLibraryApplication
 import com.example.mylittlelibrary.R
 import com.example.mylittlelibrary.databinding.ActivityListBinding
-import com.example.mylittlelibrary.databinding.ActivityMainBinding
 import com.example.mylittlelibrary.ui.viewModel.BookViewModel
 import javax.inject.Inject
 
 class ListActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityListBinding
     @Inject
     lateinit var viewModel: BookViewModel
     private lateinit var binding: ActivityListBinding
@@ -22,11 +22,8 @@ class ListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         (application as MyLittleLibraryApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list)
         binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        var intent = Intent(this, ListActivity::class.java)
 
         if (intent.hasExtra("Clicked")){
             val itemSelected = intent.getStringExtra("Clicked")
@@ -36,11 +33,13 @@ class ListActivity : AppCompatActivity() {
                     Log.i(TAG, it.toString())
                 })
             } else if (itemSelected == "Movies"){
+                binding.btnAddBook.text = "Add Movie"
                 viewModel.fetchMovies()
                 viewModel.movies.observe(this, Observer {
                     Log.i(TAG, it.toString())
                 })
             } else {
+                binding.btnAddBook.text = "Add Dvd"
                 viewModel.fetchDvds()
                 viewModel.dvds.observe(this, Observer {
                     Log.i(TAG, it.toString())
