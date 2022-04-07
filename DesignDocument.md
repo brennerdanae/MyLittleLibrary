@@ -192,5 +192,5 @@ As a user with items stored in MyLittleLibrary, I want to be see what all I have
 
 ## Weekly Meeting
 
-Monday at 11:30 AM. Microsoft Teams Call.
+Tuesday at 5:00 PM. Microsoft Teams Call.
 
