@@ -1,5 +1,6 @@
 package com.example.mylittlelibrary.repository
 
+import android.util.Log
 import com.example.mylittlelibrary.data.Book
 import com.example.mylittlelibrary.room.dao.BookDao
 import com.example.mylittlelibrary.service.BookService
@@ -13,7 +14,14 @@ class BookRepository @Inject constructor(private val bookDao: BookDao, private v
     suspend fun addBook(book: Book): Boolean = service.addBook(book)
 
     suspend fun fetchBooks(){
-        val books = service.fetchBooks()
-        books?.let { bookDao.insertAll(it) }
+        Result.runCatching {
+            service.fetchBooks()
+        }.onSuccess { books ->
+            books?.let {
+                bookDao.insertAll(it)
+            }
+        }.onFailure { throwable ->
+            Log.d("Service Error", throwable.message.toString())
+        }
     }
 }
