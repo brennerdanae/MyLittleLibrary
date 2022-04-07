@@ -22,10 +22,22 @@ class ListActivity : AppCompatActivity() {
 
         if (intent.hasExtra("Clicked")){
             val itemSelected = intent.getStringExtra("Clicked")
-            viewModel.fetchBooks()
-            viewModel.books.observe(this, Observer {
-                Log.i(TAG, it.toString())
-            })
+            if(itemSelected == "Books"){
+                viewModel.fetchBooks()
+                viewModel.books.observe(this, Observer {
+                    Log.i(TAG, it.toString())
+                })
+            } else if (itemSelected == "Movies"){
+                viewModel.fetchMovies()
+                viewModel.movies.observe(this, Observer {
+                    Log.i(TAG, it.toString())
+                })
+            } else {
+                viewModel.fetchDvds()
+                viewModel.dvds.observe(this, Observer {
+                    Log.i(TAG, it.toString())
+                })
+            }
         }
     }
 
