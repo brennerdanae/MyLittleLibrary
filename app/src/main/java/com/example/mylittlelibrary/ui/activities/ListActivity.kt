@@ -1,5 +1,6 @@
 package com.example.mylittlelibrary.ui.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +17,7 @@ class ListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityListBinding
     @Inject
     lateinit var viewModel: BookViewModel
+    private lateinit var binding: ActivityListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (application as MyLittleLibraryApplication).appComponent.inject(this)
@@ -44,6 +46,14 @@ class ListActivity : AppCompatActivity() {
                 })
             }
         }
+
+        binding.btnBack.setOnClickListener {
+            intent.putExtra("Clicked", "Back")
+            finish()
+        }
+
+
+
     }
 
     companion object {
