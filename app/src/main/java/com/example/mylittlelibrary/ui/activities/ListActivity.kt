@@ -14,7 +14,6 @@ import javax.inject.Inject
 
 class ListActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityListBinding
     @Inject
     lateinit var viewModel: BookViewModel
     private lateinit var binding: ActivityListBinding
@@ -33,13 +32,13 @@ class ListActivity : AppCompatActivity() {
                     Log.i(TAG, it.toString())
                 })
             } else if (itemSelected == "Movies"){
-                binding.btnAddBook.text = "Add Movie"
+                binding.btnAddItem.text = "Add Movie"
                 viewModel.fetchMovies()
                 viewModel.movies.observe(this, Observer {
                     Log.i(TAG, it.toString())
                 })
             } else {
-                binding.btnAddBook.text = "Add Dvd"
+                binding.btnAddItem.text = "Add Dvd"
                 viewModel.fetchDvds()
                 viewModel.dvds.observe(this, Observer {
                     Log.i(TAG, it.toString())
