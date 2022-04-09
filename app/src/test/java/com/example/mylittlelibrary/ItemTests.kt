@@ -5,6 +5,8 @@ import com.example.mylittlelibrary.data.Book
 import com.example.mylittlelibrary.data.Game
 import com.example.mylittlelibrary.data.Movie
 import com.example.mylittlelibrary.service.BookService
+import com.example.mylittlelibrary.service.GameService
+import com.example.mylittlelibrary.service.MovieService
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.*
 import org.junit.Rule
@@ -16,42 +18,45 @@ class ItemTests {
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
 
-    lateinit var bookService : BookService
-    lateinit var movieService : MovieService
-    lateinit var gameService : GameService
+    lateinit var bookService: BookService
+    lateinit var movieService: MovieService
+    lateinit var gameService: GameService
 
-    var allBooks : List<Book>? = ArrayList<Book>
-    var allMovies : List<Movie>? = ArrayList<Movie>
-    var allGames : List<Game>? = ArrayList<Game>
-
-    @Test
-    fun `Given movie data is available when I search for Green Mile then I should see Green Mile` () = runTest {
-        givenMovieServiceIsInitialized()
-        whenMovieDataAreReadAndParsed()
-        thenTheMovieCollectionShouldContainGreenMile()
-        assert(true)
-        assertEquals(2, 1+1)
-    }
-
+    var allBooks: List<Book>? = ArrayList<Book>()
+    var allMovies: List<Movie>? = ArrayList<Movie>()
+    var allGames: List<Game>? = ArrayList<Game>()
 
     @Test
-    fun `Given game data is available when I search for Parks then I should see Parks` () = runTest {
-        givenGameServiceIsInitialized()
-        whenGameDataAreReadAndParsed()
-        thenTheGameCollectionShouldContainParks()
-        assert(true)
-        assertEquals(2, 1+1)
-    }
+    fun `Given movie data is available when I search for Inception then I should see Inception`() =
+        runTest {
+            givenMovieServiceIsInitialized()
+            whenMovieDataAreReadAndParsed()
+            thenTheMovieCollectionShouldContainInception()
+            assert(true)
+            assertEquals(2, 1 + 1)
+        }
 
 
     @Test
-    fun `Given book data is available when I search for Maid then I should see Maid` () = runTest {
-        givenBookServiceIsInitialized()
-        whenBookDataAreReadAndParsed()
-        thenTheBookCollectionShouldContainMaid()
-        assert(true)
-        assertEquals(2, 1+1)
-    }
+    fun `Given game data is available when I search for Fortnite then I should see Fortnite`() =
+        runTest {
+            givenGameServiceIsInitialized()
+            whenGameDataAreReadAndParsed()
+            thenTheGameCollectionShouldContainFortnite()
+            assert(true)
+            assertEquals(2, 1 + 1)
+        }
+
+
+    @Test
+    fun `Given book data is available when I search for Wuthering Heights then I should see Wuthering Heights`() =
+        runTest {
+            givenBookServiceIsInitialized()
+            whenBookDataAreReadAndParsed()
+            thenTheBookCollectionShouldContainWutheringHeights()
+            assert(true)
+            assertEquals(2, 1 + 1)
+        }
 
 
     private suspend fun whenBookDataAreReadAndParsed() {
@@ -78,40 +83,40 @@ class ItemTests {
         movieService = MovieService()
     }
 
-    private fun thenTheMovieCollectionShouldContainGreenMile() {
+    private fun thenTheMovieCollectionShouldContainInception() {
         assertNotNull(allMovies)
         assertTrue(allMovies!!.isNotEmpty())
-        var containsGreenMile = false
+        var containsInception = false
         allMovies!!.forEach {
-            if (it.name.equals(("Green Mile"))){
-                containsGreenMile = true
+            if (it.name.equals(("Inception"))) {
+                containsInception = true
             }
         }
-        assertTrue(containsGreenMile)
+        assertTrue(containsInception)
 
     }
 
-    private fun thenTheGameCollectionShouldContainParks() {
+    private fun thenTheGameCollectionShouldContainFortnite() {
         assertNotNull(allGames)
         assertTrue(allGames!!.isNotEmpty())
-        var containsParks = false
+        var containsFortnite = false
         allMovies!!.forEach {
-            if (it.name.equals(("Parks"))){
-                containsParks = true
+            if (it.name.equals(("Fortnite"))) {
+                containsFortnite = true
             }
         }
-        assertTrue(containsParks)
+        assertTrue(containsFortnite)
     }
 
-    private fun thenTheBookCollectionShouldContainMaid() {
+    private fun thenTheBookCollectionShouldContainWutheringHeights() {
         assertNotNull(allBooks)
         assertTrue(allBooks!!.isNotEmpty())
-        var containsMaid = false
+        var containsWutheringHeights = false
         allMovies!!.forEach {
-            if (it.name.equals(("Maid"))){
-                containsMaid = true
+            if (it.name.equals(("Wuthering Heights"))) {
+                containsWutheringHeights = true
             }
         }
-        assertTrue(containsMaid)
+        assertTrue(containsWutheringHeights)
     }
 }
