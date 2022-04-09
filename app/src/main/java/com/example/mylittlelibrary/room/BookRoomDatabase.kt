@@ -1,7 +1,6 @@
 package com.example.mylittlelibrary.room
 
 import android.content.Context
-import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -16,7 +15,7 @@ import com.example.mylittlelibrary.room.dao.MovieDao
     entities = arrayOf(Book::class, Movie::class, Dvd::class), version = 1,
     exportSchema = false
 )
-abstract class BookRoomDatabase : RoomDatabase() {
+public abstract class BookRoomDatabase : RoomDatabase() {
 
     abstract fun bookDao(): BookDao
     abstract fun movieDao(): MovieDao
