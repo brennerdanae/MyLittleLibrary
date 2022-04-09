@@ -22,4 +22,10 @@ object MyLittleLibraryModule {
 
     @Provides
     fun provideBooksDao(bookRoomDatabase: BookRoomDatabase) = bookRoomDatabase.bookDao()
+
+    @Provides
+    fun provideMovieDao(bookRoomDatabase: BookRoomDatabase) = bookRoomDatabase.movieDao()
+
+    @Provides
+    fun provideDvdDao(bookRoomDatabase: BookRoomDatabase) = bookRoomDatabase.dvdDao()
 }
