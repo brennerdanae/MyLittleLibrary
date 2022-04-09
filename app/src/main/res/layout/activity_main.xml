@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_vertical">
+    android:layout_gravity="center_vertical"
+    android:background="#F4F0F0"
+    android:backgroundTint="#E6BABA">
 
     <TextView
         android:id="@+id/books"
@@ -25,15 +27,15 @@
         android:id="@+id/movies"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/books"
-        app:layout_constraintBottom_toTopOf="@id/dvds"
         android:layout_margin="10dp"
         android:text="@string/movies"
-        android:textColor="@color/black"
         android:textAlignment="center"
-        android:textSize="70sp"/>
+        android:textColor="@color/black"
+        android:textSize="70sp"
+        app:layout_constraintBottom_toTopOf="@id/dvds"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/books" />
 
     <TextView
         android:id="@+id/dvds"
@@ -41,12 +43,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="@string/dvds"
-        android:textColor="@color/black"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="70sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/movies"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/movies" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

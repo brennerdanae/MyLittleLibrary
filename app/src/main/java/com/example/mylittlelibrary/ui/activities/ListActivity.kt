@@ -28,6 +28,7 @@ class ListActivity : AppCompatActivity() {
         if (intent.hasExtra("Clicked")){
             val itemSelected = intent.getStringExtra("Clicked")
             if(itemSelected == "Books"){
+                binding.btnAddItem.text = "Add Book"
                 viewModel.fetchBooks()
                 viewModel.books.observe(this, Observer {
                     Log.i(TAG, it.toString())
