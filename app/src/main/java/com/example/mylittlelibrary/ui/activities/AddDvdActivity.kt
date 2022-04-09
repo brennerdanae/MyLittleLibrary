@@ -17,6 +17,7 @@ class AddDvdActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddDvdBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.btnSubmit.setOnClickListener {
             val dvd = Dvd(
@@ -33,5 +34,9 @@ class AddDvdActivity : AppCompatActivity() {
                 onBackPressed()
             }
         })
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
