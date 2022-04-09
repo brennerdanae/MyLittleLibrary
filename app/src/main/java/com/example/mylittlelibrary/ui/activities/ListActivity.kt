@@ -23,6 +23,7 @@ class ListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if (intent.hasExtra("Clicked")){
             val itemSelected = intent.getStringExtra("Clicked")
@@ -53,6 +54,11 @@ class ListActivity : AppCompatActivity() {
 
 
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     companion object {
