@@ -12,9 +12,17 @@ import retrofit2.Response
 import retrofit2.awaitResponse
 import retrofit2.create
 
-class BookService {
-    private val service = RetrofitClientInstance.retrofitInstance?.create(LibraryApi::class.java)
-    suspend fun fetchBooks(): List<Book>? {
+interface IBookService {
+    val service: LibraryApi?
+
+    suspend fun fetchBooks(): List<Book>?
+
+    suspend fun addBook(book: Book): Boolean
+}
+
+class BookService : IBookService {
+    override val service = RetrofitClientInstance.retrofitInstance?.create(LibraryApi::class.java)
+    override suspend fun fetchBooks(): List<Book>? {
         return withContext(Dispatchers.IO){
             val call = service?.getAllBooks()?.execute()
             call?.let { callInstance ->
@@ -27,7 +35,7 @@ class BookService {
         }
     }
 
-    suspend fun addBook(book: Book): Boolean {
+    override suspend fun addBook(book: Book): Boolean {
         return withContext(Dispatchers.IO){
             val call = service?.addBook(book)?.execute()
             call.let {
