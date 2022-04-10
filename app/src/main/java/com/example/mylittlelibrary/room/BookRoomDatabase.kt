@@ -6,13 +6,15 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.mylittlelibrary.data.Book
 import com.example.mylittlelibrary.data.Dvd
+import com.example.mylittlelibrary.data.Game
 import com.example.mylittlelibrary.data.Movie
 import com.example.mylittlelibrary.room.dao.BookDao
 import com.example.mylittlelibrary.room.dao.DvdDao
+import com.example.mylittlelibrary.room.dao.GameDao
 import com.example.mylittlelibrary.room.dao.MovieDao
 
 @Database(
-    entities = arrayOf(Book::class, Movie::class, Dvd::class), version = 1,
+    entities = arrayOf(Book::class, Movie::class, Dvd::class, Game::class), version = 1,
     exportSchema = false
 )
 public abstract class BookRoomDatabase : RoomDatabase() {
@@ -20,6 +22,7 @@ public abstract class BookRoomDatabase : RoomDatabase() {
     abstract fun bookDao(): BookDao
     abstract fun movieDao(): MovieDao
     abstract fun dvdDao(): DvdDao
+    abstract fun gameDao(): GameDao
 
     companion object {
         @Volatile
