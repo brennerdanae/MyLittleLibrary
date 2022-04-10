@@ -3,13 +3,14 @@ package com.example.mylittlelibrary.ui.activities
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Bitmap
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mylittlelibrary.R
+import com.example.mylittlelibrary.data.Photo
 import com.example.mylittlelibrary.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var imageView: ImageView
     lateinit var button: Button
     val REQUEST_IMAGE_CAPTURE = 100
+    val photos: ArrayList<Photo> = ArrayList<Photo>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
