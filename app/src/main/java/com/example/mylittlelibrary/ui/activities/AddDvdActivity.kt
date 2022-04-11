@@ -3,7 +3,6 @@ package com.example.mylittlelibrary.ui.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import com.example.mylittlelibrary.MyLittleLibraryApplication
 import com.example.mylittlelibrary.data.Dvd
 import com.example.mylittlelibrary.databinding.ActivityAddDvdBinding
@@ -28,12 +27,12 @@ class AddDvdActivity : AppCompatActivity() {
             )
             addDvdViewModel.addDvd(dvd)
         }
-        addDvdViewModel.myResponse.observe(this, Observer {
+        addDvdViewModel.myResponse.observe(this) {
             if (it) {
                 addDvdViewModel.fetchDvds()
                 onBackPressed()
             }
-        })
+        }
     }
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

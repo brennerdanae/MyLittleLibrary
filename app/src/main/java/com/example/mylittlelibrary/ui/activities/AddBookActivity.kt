@@ -8,7 +8,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker.PERMISSION_GRANTED
-import androidx.lifecycle.Observer
 import com.example.mylittlelibrary.MyLittleLibraryApplication
 import com.example.mylittlelibrary.data.Book
 import com.example.mylittlelibrary.databinding.ActivityAddBookBinding
@@ -35,12 +34,12 @@ class AddBookActivity : AppCompatActivity() {
             )
             addBookViewModel.addBook(book)
         }
-        addBookViewModel.myResponse.observe(this, Observer {
+        addBookViewModel.myResponse.observe(this) {
             if (it) {
                 addBookViewModel.fetchBooks()
                 onBackPressed()
             }
-        })
+        }
     }
 
     private fun takePhoto() {
