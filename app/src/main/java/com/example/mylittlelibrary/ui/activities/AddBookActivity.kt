@@ -23,6 +23,7 @@ class AddBookActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddBookBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.btnSubmit.setOnClickListener {
             takePhoto()
@@ -78,6 +79,11 @@ class AddBookActivity : AppCompatActivity() {
 
     private fun invokeCamera() {
         TODO("Not yet implemented")
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     fun hasCameraPermission() = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)

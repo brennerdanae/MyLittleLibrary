@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         // testing
 
         val intent = Intent(this, ListActivity::class.java)
@@ -32,6 +33,8 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("Clicked", "Books")
             startActivity(intent)
         }
+
+
 
         binding.movies.setOnClickListener {
             intent.putExtra("Clicked", "Movies")
@@ -64,5 +67,9 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
