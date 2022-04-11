@@ -17,7 +17,7 @@ import com.example.mylittlelibrary.room.dao.MovieDao
     entities = arrayOf(Book::class, Movie::class, Dvd::class, Game::class), version = 1,
     exportSchema = false
 )
-public abstract class BookRoomDatabase : RoomDatabase() {
+abstract class BookRoomDatabase : RoomDatabase() {
 
     abstract fun bookDao(): BookDao
     abstract fun movieDao(): MovieDao
