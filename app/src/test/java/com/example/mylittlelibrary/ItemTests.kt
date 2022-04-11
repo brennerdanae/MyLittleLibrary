@@ -88,7 +88,7 @@ class ItemTests {
         assertTrue(allMovies!!.isNotEmpty())
         var containsInception = false
         allMovies!!.forEach {
-            if (it.name.equals(("Inception"))) {
+            if (it.name == ("Inception")) {
                 containsInception = true
             }
         }
@@ -101,7 +101,7 @@ class ItemTests {
         assertTrue(allGames!!.isNotEmpty())
         var containsFortnite = false
         allMovies!!.forEach {
-            if (it.name.equals(("Fortnite"))) {
+            if (it.name == ("Fortnite")) {
                 containsFortnite = true
             }
         }
@@ -113,7 +113,7 @@ class ItemTests {
         assertTrue(allBooks!!.isNotEmpty())
         var containsWutheringHeights = false
         allMovies!!.forEach {
-            if (it.name.equals(("Wuthering Heights"))) {
+            if (it.name == ("Wuthering Heights")) {
                 containsWutheringHeights = true
             }
         }

@@ -14,7 +14,7 @@ import com.example.mylittlelibrary.room.dao.GameDao
 import com.example.mylittlelibrary.room.dao.MovieDao
 
 @Database(
-    entities = arrayOf(Book::class, Movie::class, Dvd::class, Game::class), version = 1,
+    entities = [Book::class, Movie::class, Dvd::class, Game::class], version = 1,
     exportSchema = false
 )
 abstract class BookRoomDatabase : RoomDatabase() {
