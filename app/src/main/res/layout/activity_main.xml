@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
-    android:background="#F4F0F0"
+    android:background="#FFFFFF"
     android:backgroundTint="#E6BABA">
 
     <TextView
@@ -13,13 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:fontFamily="serif"
         android:gravity="center_horizontal"
         android:text="@string/books"
         android:textColor="@color/black"
         android:textSize="70sp"
         app:layout_constraintBottom_toTopOf="@id/movies"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,6 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:fontFamily="serif"
         android:text="@string/movies"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -46,6 +48,7 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="70sp"
+        android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
