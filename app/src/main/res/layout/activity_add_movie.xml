@@ -23,7 +23,8 @@
             android:hint="Movie Name"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColorHint="#757575" />
+            android:textColorHint="#757575"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/editTextMovieLendTo"
@@ -32,7 +33,8 @@
             android:hint="Lendee"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColorHint="#757575" />
+            android:textColorHint="#757575"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/editTextMovieDate"
@@ -41,7 +43,8 @@
             android:hint="Enter Date"
             android:inputType="datetime"
             android:minHeight="48dp"
-            android:textColorHint="#757575" />
+            android:textColorHint="#757575"
+            android:importantForAutofill="no" />
 
         <Button
             android:id="@+id/btnMovieSubmit"
