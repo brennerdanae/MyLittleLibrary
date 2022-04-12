@@ -21,21 +21,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="DVD Name"
-            android:inputType="text" />
+            android:inputType="text"
+            android:minHeight="48dp" />
 
         <EditText
             android:id="@+id/editTextDvdLendTo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Lendee"
-            android:inputType="text" />
+            android:inputType="text"
+            android:minHeight="48dp" />
 
         <EditText
             android:id="@+id/editTextDvdDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Date"
-            android:inputType="datetime" />
+            android:inputType="datetime"
+            android:minHeight="48dp" />
 
         <Button
             android:id="@+id/btnSubmit"
