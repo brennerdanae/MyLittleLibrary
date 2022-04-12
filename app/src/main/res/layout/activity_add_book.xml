@@ -20,43 +20,43 @@
             android:id="@+id/editTextBook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Item Name"
+            android:autofillHints=""
+            android:hint="@string/item_Name"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColorHint="#757575"
-            android:autofillHints="" />
+            android:textColorHint="#757575" />
 
         <EditText
             android:id="@+id/editTextLendTo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Lendee"
+            android:autofillHints=""
+            android:hint="@string/lendee"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColorHint="#757575"
-            android:autofillHints="" />
+            android:textColorHint="#757575" />
 
         <EditText
             android:id="@+id/editTextDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Date"
+            android:hint="@string/date"
+            android:importantForAutofill="no"
             android:inputType="datetime"
             android:minHeight="48dp"
-            android:textColorHint="#757575"
-            android:importantForAutofill="no" />
+            android:textColorHint="#757575" />
 
         <Button
             android:id="@+id/btnSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Item" />
+            android:text="@string/add_Book" />
 
         <Button
             android:id="@+id/add_btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back" />
+            android:text="@string/back" />
 
     </LinearLayout>
 
