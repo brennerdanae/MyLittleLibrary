@@ -22,7 +22,8 @@
             android:layout_height="wrap_content"
             android:hint="DVD Name"
             android:inputType="text"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textColorHint="#757575" />
 
         <EditText
             android:id="@+id/editTextDvdLendTo"
@@ -30,7 +31,8 @@
             android:layout_height="wrap_content"
             android:hint="Lendee"
             android:inputType="text"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textColorHint="#757575" />
 
         <EditText
             android:id="@+id/editTextDvdDate"
@@ -38,7 +40,8 @@
             android:layout_height="wrap_content"
             android:hint="Enter Date"
             android:inputType="datetime"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textColorHint="#757575" />
 
         <Button
             android:id="@+id/btnSubmit"
