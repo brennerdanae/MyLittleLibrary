@@ -20,19 +20,22 @@
             android:id="@+id/editTextDvd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Dvd Name" />
+            android:hint="DVD Name"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/editTextDvdLendTo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name of person dvd lend to?" />
+            android:hint="Lendee"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/editTextDvdDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Date" />
+            android:hint="Enter Date"
+            android:inputType="datetime" />
 
         <Button
             android:id="@+id/btnSubmit"

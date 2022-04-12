@@ -20,19 +20,22 @@
             android:id="@+id/editTextMovie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Movie Name" />
+            android:hint="Movie Name"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/editTextMovieLendTo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name of person movie lend to?" />
+            android:hint="Lendee"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/editTextMovieDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Date" />
+            android:hint="Enter Date"
+            android:inputType="datetime" />
 
         <Button
             android:id="@+id/btnMovieSubmit"

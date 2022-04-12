@@ -20,19 +20,22 @@
             android:id="@+id/editTextBook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Item Name" />
+            android:hint="Item Name"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/editTextLendTo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name of person item lend to?" />
+            android:hint="Lendee"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/editTextDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Date" />
+            android:hint="Enter Date"
+            android:inputType="datetime" />
 
         <Button
             android:id="@+id/btnSubmit"
