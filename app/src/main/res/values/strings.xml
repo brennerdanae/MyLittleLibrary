@@ -3,4 +3,15 @@
     <string name="books">Books</string>
     <string name="movies">Movies</string>
     <string name="dvds">DVDs</string>
+
+    <string name="add_Book">Add Book</string>
+    <string name="add_Movie">Add Movie</string>
+    <string name="add_DVD">Add DVD</string>
+    <string name="add_Item">Add DVD</string>
+
+    <string name="item_Name">Item Name</string>
+    <string name="lendee">Lendee</string>
+    <string name="date">Date</string>
+
+    <string name="back">Back</string>
 </resources>
