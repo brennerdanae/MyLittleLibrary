@@ -5,12 +5,13 @@ import com.example.mylittlelibrary.data.Book
 import com.example.mylittlelibrary.data.Dvd
 import com.example.mylittlelibrary.data.Movie
 import com.example.mylittlelibrary.repository.BookRepository
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class BookViewModel @Inject constructor(
     private val repository: BookRepository
-) : ViewModel() {
+) : ViewModel(), BookRepository.IListener {
 
     var books = repository.allBooks.asLiveData()
     var movies = repository.allMovie.asLiveData()
@@ -20,37 +21,53 @@ class BookViewModel @Inject constructor(
 
     fun fetchBooks() {
         viewModelScope.launch {
-            repository.fetchBooks()
+            repository.fetchBooksFromDb(this@BookViewModel)
         }
     }
 
     fun addBook(book: Book) {
         viewModelScope.launch {
-            myResponse.postValue(repository.addBook(book))
+            //myResponse.postValue(repository.addBook(book))
+            repository.addBook(book)
+            myResponse.postValue(true)
         }
     }
 
     fun fetchMovies(){
         viewModelScope.launch {
-            repository.fetchMovies()
+            repository.fetchMovieFromDb(this@BookViewModel)
         }
     }
 
     fun addMovie(movie: Movie){
         viewModelScope.launch {
-            myResponse.postValue(repository.addMovie(movie))
+            repository.addMovie(movie)
+            myResponse.postValue(true)
         }
     }
 
     fun fetchDvds(){
         viewModelScope.launch {
-            repository.fetchDvd()
+            repository.fetchDvdFromDb(this@BookViewModel)
         }
     }
 
     fun addDvd(dvd: Dvd){
         viewModelScope.launch {
-            myResponse.postValue(repository.addDvd(dvd))
+            repository.addDvd(dvd)
+            myResponse.postValue(true)
         }
+    }
+
+    override fun passBookToViewModel(books: Flow<List<Book>>) {
+        this.books = books.asLiveData()
+    }
+
+    override fun passMovieToViewModel(movies: Flow<List<Movie>>) {
+        this.movies = movies.asLiveData()
+    }
+
+    override fun passDvdToViewModel(dvd: Flow<List<Dvd>>) {
+        this.dvds = dvd.asLiveData()
     }
 }

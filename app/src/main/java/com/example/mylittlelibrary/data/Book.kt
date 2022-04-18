@@ -7,7 +7,7 @@ import java.util.*
 
 @Entity(tableName = "book_table")
 data class Book(
-    @PrimaryKey val id: Int,
+    @PrimaryKey var id: Int,
     @ColumnInfo(name = "name") var name: String,
     @ColumnInfo(name = "lendTo") var lendTo: String,
     @ColumnInfo(name = "date") var date: String

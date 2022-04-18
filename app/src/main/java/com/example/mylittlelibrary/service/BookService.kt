@@ -5,20 +5,18 @@ import com.example.mylittlelibrary.data.Book
 import com.example.mylittlelibrary.data.Dvd
 import com.example.mylittlelibrary.data.Movie
 import com.example.mylittlelibrary.service.api.LibraryApi
+import com.example.mylittlelibrary.utils.SharedPreferencesUtil
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
-import retrofit2.Response
-import retrofit2.awaitResponse
-import retrofit2.create
 
 class BookService {
+
     private val service = RetrofitClientInstance.retrofitInstance?.create(LibraryApi::class.java)
     suspend fun fetchBooks(): List<Book>? {
-        return withContext(Dispatchers.IO){
+        return withContext(Dispatchers.IO) {
             val call = service?.getAllBooks()?.execute()
             call?.let { callInstance ->
-                if(callInstance.isSuccessful) {
+                if (callInstance.isSuccessful) {
                     callInstance.body()
                 } else {
                     emptyList()
@@ -28,7 +26,7 @@ class BookService {
     }
 
     suspend fun addBook(book: Book): Boolean {
-        return withContext(Dispatchers.IO){
+        return withContext(Dispatchers.IO) {
             val call = service?.addBook(book)?.execute()
             call.let {
                 it?.isSuccessful ?: false
@@ -37,10 +35,10 @@ class BookService {
     }
 
     suspend fun fetchMovies(): List<Movie>? {
-        return withContext(Dispatchers.IO){
+        return withContext(Dispatchers.IO) {
             val call = service?.getAllMovie()?.execute()
             call?.let {
-                if (it.isSuccessful){
+                if (it.isSuccessful) {
                     it.body()
                 } else {
                     emptyList()
@@ -49,8 +47,8 @@ class BookService {
         }
     }
 
-    suspend fun addMovie(movie: Movie): Boolean{
-        return withContext(Dispatchers.IO){
+    suspend fun addMovie(movie: Movie): Boolean {
+        return withContext(Dispatchers.IO) {
             val call = service?.addMovie(movie)?.execute()
             call.let {
                 it?.isSuccessful ?: false
@@ -58,11 +56,11 @@ class BookService {
         }
     }
 
-    suspend fun fetchDvd() : List<Dvd>?{
-        return withContext(Dispatchers.IO){
+    suspend fun fetchDvd(): List<Dvd>? {
+        return withContext(Dispatchers.IO) {
             val call = service?.getAllDvds()?.execute()
             call?.let {
-                if(it.isSuccessful){
+                if (it.isSuccessful) {
                     it.body()
                 } else {
                     emptyList()
@@ -71,8 +69,8 @@ class BookService {
         }
     }
 
-    suspend fun addDvd(dvd: Dvd): Boolean{
-        return withContext(Dispatchers.IO){
+    suspend fun addDvd(dvd: Dvd): Boolean {
+        return withContext(Dispatchers.IO) {
             val call = service?.addDvd(dvd)?.execute()
             call.let {
                 it?.isSuccessful ?: false

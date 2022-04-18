@@ -1,5 +1,6 @@
 package com.example.mylittlelibrary.di.modules
 
+import android.content.Context
 import com.example.mylittlelibrary.MyLittleLibraryApplication
 import dagger.Binds
 import dagger.Module
@@ -13,4 +14,7 @@ class ApplicationModule(private val application: MyLittleLibraryApplication) {
     @Provides
     fun provideApplication() = application
 
+    @Singleton
+    @Provides
+    fun applicationContext(): Context = application.applicationContext
 }
