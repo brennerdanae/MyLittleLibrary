@@ -15,8 +15,6 @@ import javax.inject.Inject
 
 class ListActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityListBinding
-
     @Inject
     lateinit var viewModel: BookViewModel
     private lateinit var binding: ActivityListBinding
@@ -77,14 +75,6 @@ class ListActivity : AppCompatActivity() {
                 }
             }
         }
-
-        binding.btnBack.setOnClickListener {
-            intent.putExtra("Clicked", "Back")
-            finish()
-        }
-
-
-
     }
 
     companion object {
