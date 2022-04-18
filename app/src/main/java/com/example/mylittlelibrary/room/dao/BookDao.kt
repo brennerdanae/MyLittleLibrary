@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface BookDao {
-    @Query("SELECT * FROM book_table ORDER BY name ASC")
+    @Query("SELECT * FROM book_table")
     fun getAllBooks(): Flow<List<Book>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
