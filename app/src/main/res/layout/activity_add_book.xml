@@ -20,38 +20,26 @@
             android:id="@+id/editTextBook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints=""
-            android:hint="@string/item_Name"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:textColorHint="#757575" />
+            android:hint="Item Name" />
 
         <EditText
             android:id="@+id/editTextLendTo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints=""
-            android:hint="@string/lendee"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:textColorHint="#757575" />
+            android:hint="Name of person item lend to?" />
 
         <EditText
             android:id="@+id/editTextDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/date"
-            android:importantForAutofill="no"
-            android:inputType="datetime"
-            android:minHeight="48dp"
-            android:textColorHint="#757575" />
-
+            android:hint="Enter Return Date" />
 
         <Button
             android:id="@+id/btnSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/add_Book" />
+            android:text="Add Item" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
