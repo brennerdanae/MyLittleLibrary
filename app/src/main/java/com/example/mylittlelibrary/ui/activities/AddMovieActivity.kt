@@ -22,6 +22,7 @@ class AddMovieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddMovieBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.btnMovieSubmit.setOnClickListener {
             val num = Random.nextInt(0, 10000)
@@ -40,5 +41,9 @@ class AddMovieActivity : AppCompatActivity() {
                 onBackPressed()
             }
         })
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

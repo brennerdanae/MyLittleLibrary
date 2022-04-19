@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import com.example.mylittlelibrary.MyLittleLibraryApplication
 import com.example.mylittlelibrary.data.Dvd
 import com.example.mylittlelibrary.databinding.ActivityAddDvdBinding
@@ -22,6 +21,7 @@ class AddDvdActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddDvdBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.btnSubmit.setOnClickListener {
             val num = Random.nextInt(0, 10000)
@@ -34,11 +34,15 @@ class AddDvdActivity : AppCompatActivity() {
             )
             addDvdViewModel.addDvd(dvd)
         }
-        addDvdViewModel.myResponse.observe(this, Observer {
+        addDvdViewModel.myResponse.observe(this) {
             if (it) {
                 addDvdViewModel.fetchDvds()
                 onBackPressed()
             }
-        })
+        }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

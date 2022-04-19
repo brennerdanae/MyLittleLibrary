@@ -9,6 +9,6 @@ class MyLittleLibraryApplication : Application() {
     val appComponent: AppComponent by lazy {
         DaggerAppComponent.builder()
             .applicationModule(ApplicationModule(this))
-            .build();
+            .build()
     }
 }

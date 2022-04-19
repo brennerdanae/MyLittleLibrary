@@ -2,7 +2,6 @@ package com.example.mylittlelibrary.ui.activities
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -20,16 +19,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // testing
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        var intent = Intent(this, ListActivity::class.java)
+        val intent = Intent(this, ListActivity::class.java)
 
         binding.books.setOnClickListener {
             intent.putExtra("Clicked", "Books")
             startActivity(intent)
         }
 
-        binding.movies.setOnClickListener{
+        binding.movies.setOnClickListener {
             intent.putExtra("Clicked", "Movies")
             startActivity(intent)
         }
@@ -38,5 +37,11 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("Clicked", "DVDs")
             startActivity(intent)
         }
+
     }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
 }

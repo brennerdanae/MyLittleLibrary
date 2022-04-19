@@ -3,8 +3,8 @@ package com.example.mylittlelibrary.ui.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mylittlelibrary.MyLittleLibraryApplication
 import com.example.mylittlelibrary.data.Book
 import com.example.mylittlelibrary.databinding.ActivityAddBookBinding
@@ -23,6 +23,7 @@ class AddBookActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddBookBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.btnSubmit.setOnClickListener {
             val num = Random.nextInt(0, 10000)
@@ -35,11 +36,11 @@ class AddBookActivity : AppCompatActivity() {
             )
             addBookViewModel.addBook(book)
         }
-        addBookViewModel.myResponse.observe(this, Observer {
+        addBookViewModel.myResponse.observe(this) {
             if (it) {
                 addBookViewModel.fetchBooks()
                 onBackPressed()
             }
-        })
+        }
     }
 }

@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.example.mylittlelibrary.MyLittleLibraryApplication
 import com.example.mylittlelibrary.R
@@ -22,6 +21,7 @@ class ListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         (application as MyLittleLibraryApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_list)
         binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -54,8 +54,6 @@ class ListActivity : AppCompatActivity() {
                     })
                 }
             }
-        }
-
         binding.btnAdd.setOnClickListener {
             if (intent.hasExtra("Clicked")) {
                 when (intent.getStringExtra("Clicked")) {
