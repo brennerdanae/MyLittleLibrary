@@ -54,27 +54,27 @@ class ListActivity : AppCompatActivity() {
                     })
                 }
             }
-        binding.btnAdd.setOnClickListener {
-            if (intent.hasExtra("Clicked")) {
-                when (intent.getStringExtra("Clicked")) {
-                    "Books" -> {
-                        val intent = Intent(this, AddBookActivity::class.java)
-                        startActivity(intent)
-                    }
+            binding.btnAdd.setOnClickListener {
+                if (intent.hasExtra("Clicked")) {
+                    when (intent.getStringExtra("Clicked")) {
+                        "Books" -> {
+                            val intent = Intent(this, AddBookActivity::class.java)
+                            startActivity(intent)
+                        }
 
-                    "Movies" -> {
-                        val intent = Intent(this, AddMovieActivity::class.java)
-                        startActivity(intent)
-                    }
-                    else -> {
-                        val intent = Intent(this, AddDvdActivity::class.java)
-                        startActivity(intent)
+                        "Movies" -> {
+                            val intent = Intent(this, AddMovieActivity::class.java)
+                            startActivity(intent)
+                        }
+                        else -> {
+                            val intent = Intent(this, AddDvdActivity::class.java)
+                            startActivity(intent)
+                        }
                     }
                 }
             }
         }
     }
-
     companion object {
         const val TAG = "ListActivity"
     }
