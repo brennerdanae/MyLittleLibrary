@@ -7,11 +7,21 @@
     <string name="add_Book">Add Book</string>
     <string name="add_Movie">Add Movie</string>
     <string name="add_DVD">Add DVD</string>
-    <string name="add_Item">Add DVD</string>
+    <string name="add_Item">Add Item</string>
 
     <string name="item_Name">Item Name</string>
     <string name="lendee">Lendee</string>
     <string name="date">Return Date</string>
 
     <string name="back">Back</string>
+
+    <string name="name">Name:</string>
+    <string name="lendTo">Lend To:</string>
+    <string name="returnBy">Return By:</string>
+    <string name="cincinnati">Cincinnati</string>
+    <string name="todo">TODO</string>
+
+    <string name="dvd_Logo">DVD Logo</string>
+    <string name="book_Logo">Book Logo</string>
+    <string name="movie_Logo">Movie Logo</string>
 </resources>
