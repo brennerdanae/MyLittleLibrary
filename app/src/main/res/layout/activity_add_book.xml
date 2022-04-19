@@ -40,12 +40,6 @@
             android:layout_height="wrap_content"
             android:text="Add Item" />
 
-        <Button
-            android:id="@+id/add_btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back" />
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
