@@ -11,7 +11,7 @@
 
     <string name="item_Name">Item Name</string>
     <string name="lendee">Lendee</string>
-    <string name="date">Date</string>
+    <string name="date">Return Date</string>
 
     <string name="back">Back</string>
 </resources>
