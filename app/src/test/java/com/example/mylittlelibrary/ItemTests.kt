@@ -5,8 +5,6 @@ import com.example.mylittlelibrary.data.Book
 import com.example.mylittlelibrary.data.Game
 import com.example.mylittlelibrary.data.Movie
 import com.example.mylittlelibrary.service.BookService
-import com.example.mylittlelibrary.service.GameService
-import com.example.mylittlelibrary.service.MovieService
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.*
 import org.junit.Rule
