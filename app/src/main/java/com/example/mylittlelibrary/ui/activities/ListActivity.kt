@@ -24,6 +24,7 @@ class ListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_list)
         binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if (intent.hasExtra("Clicked")) {
             val recyclerViewAdapter = intent.getStringExtra("Clicked")
@@ -31,6 +32,7 @@ class ListActivity : AppCompatActivity() {
             binding.listItem.adapter = recyclerViewAdapter
             when (intent.getStringExtra("Clicked")) {
                 "Books" -> {
+                    title = "Books"
                     viewModel.fetchBooks()
                     viewModel.books.observe(this, Observer {
                         Log.i(TAG, it.toString())
@@ -38,6 +40,7 @@ class ListActivity : AppCompatActivity() {
                     })
                 }
                 "Movies" -> {
+                    title = "Movies"
                     binding.btnAdd.text = "Add Movie"
                     viewModel.fetchMovies()
                     viewModel.movies.observe(this, Observer {
@@ -46,6 +49,7 @@ class ListActivity : AppCompatActivity() {
                     })
                 }
                 else -> {
+                    title = "DVDs"
                     binding.btnAdd.text = "Add Dvd"
                     viewModel.fetchDvds()
                     viewModel.dvds.observe(this, Observer {
@@ -77,5 +81,9 @@ class ListActivity : AppCompatActivity() {
     }
     companion object {
         const val TAG = "ListActivity"
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

@@ -1,7 +1,6 @@
 package com.example.mylittlelibrary.ui.activities
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mylittlelibrary.MyLittleLibraryApplication
 import com.example.mylittlelibrary.data.Book
@@ -22,22 +21,45 @@ class AddBookActivity : AppCompatActivity() {
         binding = ActivityAddBookBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        title = "Add Book"
+
 
         binding.btnSubmit.setOnClickListener {
-            val num = Random.nextInt(0, 10000)
-            val book = Book(
-                id = num,
-                name = binding.editTextBook.text.toString(),
-                lendTo = binding.editTextLendTo.text.toString(),
-                date = binding.editTextDate.text.toString()
-            )
-            addBookViewModel.addBook(book)
-        }
-        addBookViewModel.myResponse.observe(this) {
-            if (it) {
-                addBookViewModel.fetchBooks()
-                onBackPressed()
+            when {
+                binding.editTextBook.text.isEmpty() -> {
+                    binding.editTextBook.error = "Required"
+                    return@setOnClickListener
+                }
+                binding.editTextLendTo.text.isEmpty() -> {
+                    binding.editTextLendTo.error = "Required"
+                    return@setOnClickListener
+                }
+                binding.editTextDate.text.isEmpty() -> {
+                    binding.editTextDate.error = "Required"
+                    return@setOnClickListener
+                }
+                else -> {
+                    val num = Random.nextInt(0, 10000)
+                    val book = Book(
+                        id = num,
+                        name = binding.editTextBook.text.toString(),
+                        lendTo = binding.editTextLendTo.text.toString(),
+                        date = binding.editTextDate.text.toString()
+                    )
+                    addBookViewModel.addBook(book)
+                }
+            }
+            addBookViewModel.myResponse.observe(this) {
+                if (it) {
+                    addBookViewModel.fetchBooks()
+                    onBackPressed()
+                }
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
