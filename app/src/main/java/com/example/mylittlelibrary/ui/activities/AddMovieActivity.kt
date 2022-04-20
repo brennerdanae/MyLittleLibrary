@@ -26,7 +26,6 @@ class AddMovieActivity : AppCompatActivity() {
 
         binding.btnMovieSubmit.setOnClickListener {
             val num = Random.nextInt(0, 10000)
-            Toast.makeText(this, num.toString(), Toast.LENGTH_SHORT).show()
             val movie = Movie(
                 id = num,
                 name = binding.editTextMovie.text.toString(),

@@ -25,7 +25,6 @@ class AddBookActivity : AppCompatActivity() {
 
         binding.btnSubmit.setOnClickListener {
             val num = Random.nextInt(0, 10000)
-            Toast.makeText(this, num.toString(), Toast.LENGTH_SHORT).show()
             val book = Book(
                 id = num,
                 name = binding.editTextBook.text.toString(),

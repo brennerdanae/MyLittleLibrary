@@ -25,7 +25,6 @@ class AddDvdActivity : AppCompatActivity() {
 
         binding.btnSubmit.setOnClickListener {
             val num = Random.nextInt(0, 10000)
-            Toast.makeText(this, num.toString(), Toast.LENGTH_SHORT).show()
             val dvd = Dvd(
                 id = num,
                 name = binding.editTextDvd.text.toString(),
