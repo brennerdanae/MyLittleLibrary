@@ -20,6 +20,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:contentDescription="@string/dvd_Logo"
             android:src="@drawable/dvd" />
 
         <LinearLayout
@@ -40,7 +41,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
-                    android:text="Name:"
+                    android:text="@string/name"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
@@ -50,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:ems="10"
-                    android:text="Cincinnati"
+                    android:text="@string/cincinnati"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
@@ -66,7 +67,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
-                    android:text="Lend To:"
+                    android:text="@string/lendTo"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
@@ -76,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:ems="10"
-                    android:text="Cincinnati"
+                    android:text="@string/cincinnati"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
@@ -91,7 +92,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
-                    android:text="Return By:"
+                    android:text="@string/returnBy"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
@@ -101,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:ems="10"
-                    android:text="Cincinnati"
+                    android:text="@string/cincinnati"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
