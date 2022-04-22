@@ -1,12 +1,9 @@
 package com.example.mylittlelibrary.ui.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.mylittlelibrary.MyLittleLibraryApplication
-import com.example.mylittlelibrary.data.Dvd
 import com.example.mylittlelibrary.data.Movie
 import com.example.mylittlelibrary.databinding.ActivityAddMovieBinding
 import com.example.mylittlelibrary.ui.viewModel.BookViewModel
@@ -28,6 +25,7 @@ class AddMovieActivity : AppCompatActivity() {
         title = "Add Movie"
 
         binding.btnMovieSubmit.setOnClickListener {
+            // Input validation is done here to make sure user entered all the fields
             when {
                 binding.editTextMovie.text.isEmpty() -> {
                     binding.editTextMovie.error = "Required"
@@ -49,6 +47,7 @@ class AddMovieActivity : AppCompatActivity() {
                         lendTo = binding.editTextMovieLendTo.text.toString(),
                         date = binding.editTextMovieDate.text.toString()
                     )
+                    //add movie to db using view model
                     addMovieViewModel.addMovie(movie)
                 }
             }
@@ -61,7 +60,7 @@ class AddMovieActivity : AppCompatActivity() {
             }
         })
     }
-
+    // on screen back button
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true

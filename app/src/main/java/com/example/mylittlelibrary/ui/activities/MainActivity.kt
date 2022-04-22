@@ -1,14 +1,8 @@
 package com.example.mylittlelibrary.ui.activities
 
-import android.content.ActivityNotFoundException
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.Toast
-import com.example.mylittlelibrary.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mylittlelibrary.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         val intent = Intent(this, ListActivity::class.java)
 
+        // Starting intent based on the button clicked
         binding.books.setOnClickListener {
             intent.putExtra("Clicked", "Books")
             startActivity(intent)

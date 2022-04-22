@@ -1,9 +1,9 @@
 package com.example.mylittlelibrary.ui.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.mylittlelibrary.MyLittleLibraryApplication
 import com.example.mylittlelibrary.R
@@ -31,6 +31,7 @@ class ListActivity : AppCompatActivity() {
                 ?.let { RecyclerViewAdapter(it) }
             binding.listItem.adapter = recyclerViewAdapter
             when (intent.getStringExtra("Clicked")) {
+                // Retrieving books from db using view model and passing it to Recycler View to present in card format
                 "Books" -> {
                     title = "Books"
                     viewModel.fetchBooks()
@@ -39,6 +40,7 @@ class ListActivity : AppCompatActivity() {
                         recyclerViewAdapter?.setFeedItemList(it, "book")
                     })
                 }
+                // Retrieving movies from db using view model and passing it to Recycler View to present in card format
                 "Movies" -> {
                     title = "Movies"
                     binding.btnAdd.text = "Add Movie"
@@ -48,6 +50,7 @@ class ListActivity : AppCompatActivity() {
                         recyclerViewAdapter?.setFeedItemList(it, "movie")
                     })
                 }
+                // Retrieving dvds from db using view model and passing it to Recycler View to present in card format
                 else -> {
                     title = "DVDs"
                     binding.btnAdd.text = "Add Dvd"
@@ -65,7 +68,6 @@ class ListActivity : AppCompatActivity() {
                             val intent = Intent(this, AddBookActivity::class.java)
                             startActivity(intent)
                         }
-
                         "Movies" -> {
                             val intent = Intent(this, AddMovieActivity::class.java)
                             startActivity(intent)

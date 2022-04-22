@@ -1,11 +1,8 @@
 package com.example.mylittlelibrary.ui.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mylittlelibrary.MyLittleLibraryApplication
-import com.example.mylittlelibrary.data.Book
 import com.example.mylittlelibrary.data.Dvd
 import com.example.mylittlelibrary.databinding.ActivityAddDvdBinding
 import com.example.mylittlelibrary.ui.viewModel.BookViewModel
@@ -27,6 +24,7 @@ class AddDvdActivity : AppCompatActivity() {
         title = "Add DVD"
 
         binding.btnSubmit.setOnClickListener {
+            // Input validation is done here to make sure user entered all the fields
             when {
                 binding.editTextDvd.text.isEmpty() -> {
                     binding.editTextDvd.error = "Required"
@@ -48,6 +46,7 @@ class AddDvdActivity : AppCompatActivity() {
                         lendTo = binding.editTextDvdLendTo.text.toString(),
                         date = binding.editTextDvdDate.text.toString()
                     )
+                    //add dvd to db using view model
                     addDvdViewModel.addDvd(dvd)
                 }
             }
@@ -59,7 +58,7 @@ class AddDvdActivity : AppCompatActivity() {
             }
         }
     }
-
+    // on screen back button
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true

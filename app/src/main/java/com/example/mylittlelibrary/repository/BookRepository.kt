@@ -26,10 +26,16 @@ class BookRepository @Inject constructor(
     val allMovie: Flow<List<Movie>> = database.movieDao().getAllMovies()
     val allDvd: Flow<List<Dvd>> = database.dvdDao().getAllDvd()
 
-    suspend fun addBook(book: Book)= database.bookDao().insert(book) //service.addBook(book)
-    suspend fun addMovie(movie: Movie) = database.movieDao().insertMovie(movie) //service.addMovie(movie)
-    suspend fun addDvd(dvd: Dvd) = database.dvdDao().insertDvd(dvd) //service.addDvd(dvd)
+    // add functions to add book to db using bookDao.insert()
+    suspend fun addBook(book: Book)= database.bookDao().insert(book)
 
+    // add functions to add movie to db using movieDao.insert()
+    suspend fun addMovie(movie: Movie) = database.movieDao().insertMovie(movie)
+
+    // add functions to add dvd to db using dvdDao.insert()
+    suspend fun addDvd(dvd: Dvd) = database.dvdDao().insertDvd(dvd)
+
+    // fetching from service
     suspend fun fetchBooks() {
         Result.runCatching {
             service.fetchBooks()
@@ -42,6 +48,7 @@ class BookRepository @Inject constructor(
         }
     }
 
+    // fetch from db first and if result is empty then calling service
     suspend fun fetchBooksFromDb(iListener: IListener) {
         val listOfBooks = database.bookDao().getAllBooks()
         Log.i("Books", listOfBooks.count().toString())
@@ -61,6 +68,7 @@ class BookRepository @Inject constructor(
         }
     }
 
+    // fetching from service
     suspend fun fetchMovies() {
         Result.runCatching {
             service.fetchMovies()
@@ -73,6 +81,7 @@ class BookRepository @Inject constructor(
         }
     }
 
+    // fetch from db first and if result is empty then calling service
     suspend fun fetchMovieFromDb(iListener: IListener){
         val listOfMovie = database.movieDao().getAllMovies()
         if (listOfMovie.count() != 0 ) { //!= 0 && !checkForTTL()
@@ -91,6 +100,7 @@ class BookRepository @Inject constructor(
         }
     }
 
+    // fetching from service
     suspend fun fetchDvd() {
         Result.runCatching {
             service.fetchDvd()
@@ -103,6 +113,7 @@ class BookRepository @Inject constructor(
         }
     }
 
+    // fetch from db first and if result is empty then calling service
     suspend fun fetchDvdFromDb(iListener: IListener){
         val listOfDvd = database.dvdDao().getAllDvd()
         if (listOfDvd.count() != 0 ) { //!= 0 && !checkForTTL()
@@ -125,6 +136,7 @@ class BookRepository @Inject constructor(
         return (System.currentTimeMillis() - SharedPreferencesUtil.getTimeToLiveFromPreferences(context)) > TIME_TO_LIVE_FOR_BOOKS
     }
 
+    // interface to pass data retrieved from db to view model
     interface IListener {
         fun passBookToViewModel(books: Flow<List<Book>>)
         fun passMovieToViewModel(movies: Flow<List<Movie>>)

@@ -25,6 +25,7 @@ class AddBookActivity : AppCompatActivity() {
 
 
         binding.btnSubmit.setOnClickListener {
+            // Input validation is done here to make sure user entered all the fields
             when {
                 binding.editTextBook.text.isEmpty() -> {
                     binding.editTextBook.error = "Required"
@@ -46,6 +47,7 @@ class AddBookActivity : AppCompatActivity() {
                         lendTo = binding.editTextLendTo.text.toString(),
                         date = binding.editTextDate.text.toString()
                     )
+                    //add book to db using view model
                     addBookViewModel.addBook(book)
                 }
             }
@@ -57,7 +59,7 @@ class AddBookActivity : AppCompatActivity() {
             }
         }
     }
-
+    // on screen back button
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
